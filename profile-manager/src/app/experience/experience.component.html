@@ -1,0 +1,31 @@
+<main class="solidBorder container" style="padding-top: 20px;">
+    <div class="jumbotron text-left">
+  <h2>Experience Details</h2>  
+  <table class="table table-striped">
+    <thead>
+  <tr>
+ 
+  <th scope="col">Experience</th>
+  <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let experienceObj of experienceList; index as i">
+  
+         
+          <td>{{ experienceObj.desc }}</td>
+          <td><button type="button" class="btn btn-secondary" (click)="DeleteHandler(i)">Delete</button></td>
+      </tr>
+  
+  </tbody>
+  </table>
+  <form id="project" class="text-left" (ngSubmit)="newExperienceFormHandler()" ngNativeVaidate>
+        <br>
+       
+        <br>Experience:
+        <input id="desc" class="form-control" type="text" name ="desc" [(ngModel)]="experienceObj.desc">
+        <br>
+        <button type="submit" class="btn btn-primary"> Add</button>
+  </form>
+  </div>
+  </main>

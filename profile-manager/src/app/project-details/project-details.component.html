@@ -1,0 +1,33 @@
+<main class="solidBorder container" style="padding-top: 20px;">
+  <div class="jumbotron text-left">
+<h2>Project Details</h2>
+<h1>NMS FSD Project</h1>	
+<table class="table table-striped">
+  <thead>
+<tr>
+<th scope="col">Title</th>
+<th scope="col">Description</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let profile of profilelist; index as i">
+
+        <td>{{ profile.title }}</td>
+        <td>{{ profile.desc }}</td>
+        <td><button type="button" class="btn btn-secondary" (click)="DeleteHandler(i)">Delete</button></td>
+    </tr>
+
+</tbody>
+</table>
+<form id="project" class="text-left" (ngSubmit)="newProfileFormHandler()" ngNativeVaidate>
+       Title:
+      <input id="title" class="form-control" type="text" name ="title" [(ngModel)]="profileObj.title" >
+      <br>
+       Description:
+      <input id="desc" class="form-control" type="text" name ="desc" [(ngModel)]="profileObj.desc">
+      <br>
+      <button type="submit" class="btn btn-primary"> Add</button>
+</form>
+</div>
+</main>
